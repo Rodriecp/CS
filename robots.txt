@@ -1,3 +1,2 @@
-User-agent: *
 Allow: /
-Sitemap: https://rodriecp.github.io/tu_repositorio/sitemap.xml
+Sitemap: https://Rodriecp.github.io/tu_repositorio/sitemap.xml
