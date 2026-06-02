@@ -1,128 +1,1706 @@
+cat > /mnt/user-data/outputs/orion_diagnostico_estrategico_2026.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación</title>
-    <meta name="description" content="Rodrigo Enrique Carpio Paco - Agente de cambio en el mundo empresarial y personal.">
-    <meta name="keywords" content="Rodrigo Enrique Carpio Paco, estudiante, agente de cambio, mundo empresarial">
-    <meta name="google-site-verification" content="BnVYD84ptkvmVgitqr4jpTpf6oeUQYXtnvRjl5EqLR0" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        .social-media {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .social-media a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #1a73e8;
-        }
-        .courses-table {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-            border: 2px solid #1a73e8;
-        }
-        .courses-table th, .courses-table td {
-            border: 1px solid #1a73e8;
-            padding: 8px;
-            text-align: center;
-        }
-        .courses-table th {
-            background-color: #1a73e8;
-            color: #ffffff;
-        }
-        .courses-table td a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        .resume {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orion Maquinarias — Diagnóstico Estratégico Digital 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root {
+  --orion-dark: #0A0C0F;
+  --orion-panel: #0F1318;
+  --orion-card: #151B22;
+  --orion-border: #1E2733;
+  --orion-gold: #D4A843;
+  --orion-gold-light: #F2C65A;
+  --orion-red: #E8392A;
+  --orion-cyan: #2AAFE8;
+  --orion-green: #2AE87A;
+  --orion-orange: #E87A2A;
+  --orion-text: #E8EAF0;
+  --orion-muted: #6B7A8D;
+  --orion-subtle: #3A4A5C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--orion-dark);color:var(--orion-text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--orion-dark)}
+::-webkit-scrollbar-thumb{background:var(--orion-gold);border-radius:2px}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:0.4}
+
+/* SIDEBAR NAV */
+#sidebar{position:fixed;left:0;top:0;height:100%;width:220px;background:var(--orion-panel);border-right:1px solid var(--orion-border);z-index:100;display:flex;flex-direction:column;padding:0}
+.sidebar-logo{padding:24px 20px 20px;border-bottom:1px solid var(--orion-border)}
+.sidebar-logo .company-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--orion-gold);letter-spacing:2px;line-height:1}
+.sidebar-logo .report-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--orion-muted);letter-spacing:1px;margin-top:4px}
+.sidebar-logo .date-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--orion-cyan);letter-spacing:1px;margin-top:2px}
+.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}
+.nav-section{padding:6px 20px 4px;font-family:'DM Mono',monospace;font-size:9px;color:var(--orion-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
+.nav-link{display:flex;align-items:center;gap:8px;padding:8px 20px;font-size:12px;font-weight:500;color:var(--orion-muted);text-decoration:none;transition:all 0.2s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:var(--orion-text);border-left-color:var(--orion-gold);background:rgba(212,168,67,0.06)}
+.nav-link .nav-icon{width:14px;height:14px;opacity:0.7;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;border-top:1px solid var(--orion-border);font-family:'DM Mono',monospace;font-size:9px;color:var(--orion-muted);line-height:1.8}
+
+/* MAIN CONTENT */
+#main{margin-left:220px;min-height:100vh}
+
+/* SECTIONS */
+.section{padding:48px 52px;min-height:100vh;border-bottom:1px solid var(--orion-border);display:none}
+.section.active{display:block}
+.section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--orion-border)}
+.section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--orion-gold);text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:2px;color:var(--orion-text);line-height:1}
+.section-subtitle{font-size:14px;color:var(--orion-muted);margin-top:6px;max-width:500px}
+.section-badge{background:var(--orion-border);border:1px solid var(--orion-subtle);padding:6px 12px;border-radius:4px;font-family:'DM Mono',monospace;font-size:10px;color:var(--orion-muted);white-space:nowrap}
+
+/* GRID LAYOUTS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+
+/* CARDS */
+.card{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:8px;padding:24px}
+.card-sm{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:8px;padding:16px}
+.card-accent{background:var(--orion-card);border:1px solid var(--orion-gold);border-radius:8px;padding:24px;position:relative;overflow:hidden}
+.card-accent::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orion-gold),transparent)}
+.card-danger{background:var(--orion-card);border:1px solid rgba(232,57,42,0.4);border-radius:8px;padding:24px}
+.card-success{background:var(--orion-card);border:1px solid rgba(42,232,122,0.3);border-radius:8px;padding:24px}
+
+/* KPI CARDS */
+.kpi-card{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:8px;padding:20px;position:relative;overflow:hidden}
+.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--kpi-color,var(--orion-gold))}
+.kpi-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--orion-muted);text-transform:uppercase;margin-bottom:8px}
+.kpi-value{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--kpi-color,var(--orion-gold));line-height:1}
+.kpi-desc{font-size:11px;color:var(--orion-muted);margin-top:6px}
+.kpi-bar{margin-top:12px;height:4px;background:var(--orion-border);border-radius:2px;overflow:hidden}
+.kpi-fill{height:100%;background:var(--kpi-color,var(--orion-gold));border-radius:2px;transition:width 1.5s cubic-bezier(0.4,0,0.2,1)}
+
+/* TYPOGRAPHY */
+h2{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--orion-text);margin-bottom:16px}
+h3{font-size:15px;font-weight:600;color:var(--orion-text);margin-bottom:8px}
+h4{font-size:12px;font-weight:600;color:var(--orion-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+p{color:#A0ADBA;font-size:14px;line-height:1.7;margin-bottom:12px}
+p:last-child{margin-bottom:0}
+
+/* TAGS / BADGES */
+.tag{display:inline-block;padding:2px 8px;border-radius:3px;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.5px}
+.tag-red{background:rgba(232,57,42,0.15);color:#FF6B5A;border:1px solid rgba(232,57,42,0.3)}
+.tag-gold{background:rgba(212,168,67,0.15);color:var(--orion-gold-light);border:1px solid rgba(212,168,67,0.3)}
+.tag-green{background:rgba(42,232,122,0.12);color:#4EF09A;border:1px solid rgba(42,232,122,0.25)}
+.tag-cyan{background:rgba(42,175,232,0.12);color:#5CC8F0;border:1px solid rgba(42,175,232,0.25)}
+.tag-orange{background:rgba(232,122,42,0.15);color:#F0963A;border:1px solid rgba(232,122,42,0.3)}
+
+/* SCORE RING */
+.score-ring-wrapper{display:flex;align-items:center;gap:24px;margin-bottom:20px}
+.score-ring{position:relative;width:100px;height:100px;flex-shrink:0}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring .score-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold);line-height:1;text-align:center}
+.score-ring .score-label{position:absolute;top:62%;left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:8px;color:var(--orion-muted);white-space:nowrap}
+
+/* LISTS */
+.check-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#A0ADBA}
+.check-list li::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.check-list.green li::before{background:var(--orion-green)}
+.check-list.red li::before{background:var(--orion-red)}
+.check-list.gold li::before{background:var(--orion-gold)}
+.check-list.cyan li::before{background:var(--orion-cyan)}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:12px}
+.data-table th{background:var(--orion-border);color:var(--orion-muted);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:1px solid var(--orion-border)}
+.data-table td{padding:10px 14px;border-bottom:1px solid rgba(30,39,51,0.6);color:#A0ADBA;vertical-align:middle}
+.data-table tr:hover td{background:rgba(212,168,67,0.03)}
+.data-table .orion-col{color:var(--orion-gold-light);font-weight:600}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--orion-border);margin:28px 0}
+
+/* FUNNEL */
+.funnel-stage{position:relative;margin-bottom:4px;display:flex;align-items:center;gap:12px}
+.funnel-bar{height:44px;border-radius:4px;display:flex;align-items:center;padding:0 16px;font-size:12px;font-weight:600;transition:width 1s ease;position:relative;overflow:hidden}
+.funnel-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04))}
+.funnel-label{font-size:11px;color:var(--orion-muted);white-space:nowrap;min-width:120px}
+.funnel-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--orion-muted);min-width:50px;text-align:right}
+
+/* ROADMAP */
+.roadmap-item{display:grid;grid-template-columns:120px 1fr;gap:16px;margin-bottom:12px;align-items:start}
+.roadmap-phase{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--orion-muted);text-transform:uppercase;padding-top:3px}
+.roadmap-content{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:6px;padding:14px 16px}
+.roadmap-content:hover{border-color:var(--orion-subtle)}
+.roadmap-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.roadmap-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+
+/* IMPACT MATRIX */
+.matrix-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--orion-border)}
+.matrix-item:last-child{border-bottom:none}
+.matrix-rank{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-border);width:32px;flex-shrink:0}
+.matrix-bars{flex:1}
+.matrix-label{font-size:13px;font-weight:500;color:var(--orion-text);margin-bottom:4px}
+.matrix-bar-row{display:flex;align-items:center;gap:8px;margin-top:3px}
+.matrix-bar-label{font-size:10px;color:var(--orion-muted);width:56px;flex-shrink:0}
+.matrix-bar-track{flex:1;height:6px;background:var(--orion-border);border-radius:3px;overflow:hidden}
+.matrix-bar-fill{height:100%;border-radius:3px}
+
+/* HERO SECTION */
+#s-executive .hero-banner{background:linear-gradient(135deg,var(--orion-panel) 0%,rgba(15,19,24,0.95) 100%);border:1px solid var(--orion-border);border-radius:12px;padding:40px;margin-bottom:32px;position:relative;overflow:hidden}
+#s-executive .hero-banner::before{content:'DIAGNÓSTICO ESTRATÉGICO';position:absolute;right:-20px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(212,168,67,0.04);letter-spacing:8px;white-space:nowrap;pointer-events:none}
+.hero-company{font-family:'Bebas Neue',sans-serif;font-size:64px;letter-spacing:4px;line-height:1;background:linear-gradient(135deg,var(--orion-gold),var(--orion-gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sector{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--orion-cyan);text-transform:uppercase;margin-top:8px}
+.hero-tagline{font-size:18px;color:var(--orion-text);margin-top:16px;font-weight:300;max-width:600px;line-height:1.5}
+.hero-meta{display:flex;gap:24px;margin-top:24px;padding-top:24px;border-top:1px solid var(--orion-border)}
+.hero-meta-item{display:flex;flex-direction:column;gap:3px}
+.hero-meta-item .label{font-family:'DM Mono',monospace;font-size:9px;color:var(--orion-muted);letter-spacing:2px;text-transform:uppercase}
+.hero-meta-item .value{font-size:13px;font-weight:500;color:var(--orion-text)}
+
+/* ALERT BOX */
+.alert{padding:16px 20px;border-radius:6px;margin-bottom:16px;display:flex;gap:12px;align-items:flex-start}
+.alert-icon{width:16px;height:16px;flex-shrink:0;margin-top:1px}
+.alert p{margin:0;font-size:13px}
+.alert-warning{background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.25);border-left:3px solid var(--orion-gold)}
+.alert-danger{background:rgba(232,57,42,0.08);border:1px solid rgba(232,57,42,0.25);border-left:3px solid var(--orion-red)}
+.alert-info{background:rgba(42,175,232,0.08);border:1px solid rgba(42,175,232,0.25);border-left:3px solid var(--orion-cyan)}
+.alert-success{background:rgba(42,232,122,0.08);border:1px solid rgba(42,232,122,0.25);border-left:3px solid var(--orion-green)}
+
+/* OPPORTUNITY CARDS */
+.opp-card{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.opp-card:hover{border-color:var(--orion-subtle);transform:translateY(-1px);transition:all 0.2s}
+.opp-icon{font-size:24px}
+.opp-title{font-size:14px;font-weight:600;color:var(--orion-text)}
+.opp-desc{font-size:12px;color:var(--orion-muted);line-height:1.5}
+.opp-meta{display:flex;gap:6px;flex-wrap:wrap}
+
+/* CHART CONTAINERS */
+.chart-wrap{position:relative;height:280px}
+.chart-wrap-sm{position:relative;height:200px}
+
+/* AI INITIATIVE */
+.ai-card{background:var(--orion-card);border:1px solid var(--orion-border);border-radius:8px;padding:20px;border-top:2px solid var(--card-accent,var(--orion-gold))}
+.ai-title{font-size:14px;font-weight:600;color:var(--orion-text);margin-bottom:4px}
+.ai-desc{font-size:12px;color:var(--orion-muted);margin-bottom:12px;line-height:1.5}
+.ai-meta-row{display:flex;gap:16px}
+.ai-meta-item{display:flex;flex-direction:column;gap:2px}
+.ai-meta-item span:first-child{font-family:'DM Mono',monospace;font-size:9px;color:var(--orion-muted);letter-spacing:1px;text-transform:uppercase}
+.ai-meta-item span:last-child{font-size:12px;font-weight:500;color:var(--orion-text)}
+
+/* COMPETITOR ROW */
+.comp-row{display:grid;grid-template-columns:160px 1fr 1fr 1fr 1fr;gap:1px;background:var(--orion-border)}
+.comp-cell{background:var(--orion-card);padding:10px 14px;font-size:12px;display:flex;align-items:center}
+.comp-cell.header{background:var(--orion-border);font-family:'DM Mono',monospace;font-size:9px;color:var(--orion-muted);letter-spacing:1px;text-transform:uppercase}
+.comp-cell.company{font-weight:600;font-size:11px}
+.comp-cell.orion{background:rgba(212,168,67,0.06);color:var(--orion-gold-light)}
+.check-yes{color:var(--orion-green);font-size:13px}
+.check-no{color:var(--orion-red);font-size:13px}
+.check-partial{color:var(--orion-orange);font-size:13px}
+
+/* SCORE BAR */
+.score-bar{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.score-bar-label{font-size:12px;color:var(--orion-muted);width:140px;flex-shrink:0}
+.score-bar-track{flex:1;height:8px;background:var(--orion-border);border-radius:4px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:4px;transition:width 1.5s cubic-bezier(0.4,0,0.2,1)}
+.score-bar-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--orion-muted);width:32px;text-align:right}
+
+/* TOOLTIP */
+[data-tooltip]{position:relative;cursor:help}
+[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1E2733;border:1px solid var(--orion-border);color:var(--orion-text);font-size:11px;padding:6px 10px;border-radius:4px;white-space:nowrap;z-index:200}
+
+/* PRINT */
+@media print{
+  #sidebar{display:none}
+  #main{margin-left:0}
+  .section{display:block!important;break-after:page}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Rodrigo Enrique Carpio Paco</h1>
 
-        <div class="social-media">
-            <h3>Redes Sociales</h3>
-            <a href="https://www.facebook.com/profile.php?id=100010563315103" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/rodrigocarpiop/" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/in/rodrigo-enrique-carpio-paco-73a78b175/" target="_blank">LinkedIn</a>
-        </div>
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="company-name">ORION<br>MAQUINARIAS</div>
+    <div class="report-tag">DIAGNÓSTICO ESTRATÉGICO</div>
+    <div class="date-tag">JUNIO 2026</div>
+  </div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Resumen</div>
+    <a class="nav-link active" onclick="showSection('s-executive')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard Ejecutivo
+    </a>
+    <div class="nav-section">Diagnóstico</div>
+    <a class="nav-link" onclick="showSection('s-digital')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      Presencia Digital
+    </a>
+    <a class="nav-link" onclick="showSection('s-social')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+      Redes Sociales
+    </a>
+    <a class="nav-link" onclick="showSection('s-leads')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Generación de Leads
+    </a>
+    <a class="nav-link" onclick="showSection('s-brand')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Posicionamiento
+    </a>
+    <a class="nav-link" onclick="showSection('s-competitors')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      Análisis Competitivo
+    </a>
+    <div class="nav-section">Estrategia</div>
+    <a class="nav-link" onclick="showSection('s-marketing')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      Oportunidades Marketing
+    </a>
+    <a class="nav-link" onclick="showSection('s-ai')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+      IA y Automatización
+    </a>
+    <a class="nav-link" onclick="showSection('s-new-biz')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Nuevas Unidades
+    </a>
+    <a class="nav-link" onclick="showSection('s-roadmap')">
+      <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Plan 12 Meses
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    Consultoría Estratégica Digital<br>
+    Preparado para: Gerencia Orion<br>
+    Clasificación: CONFIDENCIAL
+  </div>
+</nav>
 
-        <div class="resume">
-            <h3>Resumen</h3>
-            <p>Más que un estudiante me considero un agente de cambio que quiere trascender en el mundo empresarial y en muchas personas.</p>
-        </div>
+<!-- MAIN CONTENT -->
+<div id="main">
 
-        <div class="courses">
-            <h3>Cursos</h3>
-            <table class="courses-table">
-                <tr>
-                    <th>Nombre del Curso</th>
-                    <th>Nombre del Profesor</th>
-                    <th>Curso</th>
-                </tr>
-                <tr>
-                    <td>Antropología Filosófica y Teológica</td>
-                    <td><a href="mailto:pvela@ucsp.edu.pe" target="_blank">Patricia Vela Gómez</a></td>
-                    <td>ADM 3-1</td>
-                </tr>
-                <tr>
-                    <td>Apreciación Artística</td>
-                    <td><a href="mailto:jlovonc@ucsp.edu.pe" target="_blank">Jorge Lovón Caparó</a></td>
-                    <td>ADM 2-7</td>
-                </tr>
-                <tr>
-                    <td>Cálculo en Una Variable</td>
-                    <td><a href="mailto:fbegazo@ucsp.edu.pe" target="_blank">Freddy Begazo Zegarra</a></td>
-                    <td>ADM 3-1</td>
-                </tr>
-                <tr>
-                    <td>Comportamiento del Consumidor</td>
-                    <td><a href="https://www.linkedin.com/in/miguel-salomon-529453125/" target="_blank">Miguel Salomon Valdivia</a></td>
-                    <td>ADM 3-1</td>
-                </tr>
-                <tr>
-                    <td>Lógica y Argumentación</td>
-                    <td><a href="https://www.linkedin.com/in/yahaira-byrne-rivera-274201221/" target="_blank">Yahaira Byrne Rivera</a></td>
-                    <td>ADM 2-1</td>
-                </tr>
-                <tr>
-                    <td>Costos y Planeamiento Presupuestal</td>
-                    <td><a href="https://www.linkedin.com/in/jos%C3%A9-alfredo-d%C3%ADaz-flores-0327a6b4/" target="_blank">Jose Diaz Flores</a></td>
-                    <td>ADM 4-4</td>
-                </tr>
-                <tr>
-                    <td>Análisis de Datos 1</td>
-                    <td><a href="https://www.linkedin.com/in/ecuadrosv/?originalSubdomain=pe" target="_blank">Ernesto Cuadros Vargas</a></td>
-                    <td>CCOMP 2-1</td>
-                </tr>
-            </table>
-        </div>
+<!-- ===== SECTION: EXECUTIVE DASHBOARD ===== -->
+<section class="section active" id="s-executive">
+  <div class="hero-banner">
+    <div class="hero-company">ORION MAQUINARIAS</div>
+    <div class="hero-sector">Maquinaria Pesada · Construcción · Minería · Sur del Perú</div>
+    <div class="hero-tagline">Diagnóstico Estratégico Digital — Hoja de ruta para el crecimiento comercial 2026–2027</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="label">Preparado por</span><span class="value">Consultoría Estratégica Digital</span></div>
+      <div class="hero-meta-item"><span class="label">Fecha</span><span class="value">Junio 2026</span></div>
+      <div class="hero-meta-item"><span class="label">Sede analizada</span><span class="value">Arequipa / Lima</span></div>
+      <div class="hero-meta-item"><span class="label">Alcance</span><span class="value">Sur del Perú · Nacional</span></div>
     </div>
+  </div>
+
+  <!-- KPI DASHBOARD -->
+  <div class="grid-5" style="margin-bottom:28px">
+    <div class="kpi-card" style="--kpi-color:#D4A843">
+      <div class="kpi-label">Madurez Digital</div>
+      <div class="kpi-value" data-target="42">0</div>
+      <div class="kpi-desc">/ 100 puntos</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="42%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#E8392A">
+      <div class="kpi-label">Generación Leads</div>
+      <div class="kpi-value" data-target="28">0</div>
+      <div class="kpi-desc">/ 100 puntos</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="28%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#F0963A">
+      <div class="kpi-label">Marca Digital</div>
+      <div class="kpi-value" data-target="38">0</div>
+      <div class="kpi-desc">/ 100 puntos</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="38%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#2AAFE8">
+      <div class="kpi-label">Automatización</div>
+      <div class="kpi-value" data-target="15">0</div>
+      <div class="kpi-desc">/ 100 puntos</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="15%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#2AE87A">
+      <div class="kpi-label">Potencial Digital</div>
+      <div class="kpi-value" data-target="87">0</div>
+      <div class="kpi-desc">/ 100 — Oportunidad</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="87%"></div></div>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW -->
+  <div class="grid-2" style="margin-bottom:28px">
+    <div class="card">
+      <h4>Radar de Madurez Digital</h4>
+      <div class="chart-wrap"><canvas id="radarChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h4>Comparativa vs. Competidores</h4>
+      <div class="chart-wrap"><canvas id="barChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="grid-2" style="margin-bottom:28px">
+    <div>
+      <div class="card-accent" style="margin-bottom:16px">
+        <h3>Resumen Ejecutivo</h3>
+        <p>Orion Maquinarias es un jugador con potencial genuino: dealer oficial de XCMG, presencia en ferias de referencia como EXCON 2025 y PERUMIN 37, y más de 20 años de trayectoria. Sin embargo, su presencia digital no refleja la calidad de su oferta comercial.</p>
+        <p>La empresa opera en un mercado de altísimo valor — el sur del Perú concentra proyectos mineros que representan más del 60% de la inversión en maquinaria pesada del país — y actualmente <strong style="color:var(--orion-gold)">está dejando cotizaciones sobre la mesa</strong> por debilidades en captación digital, automatización y posicionamiento de marca.</p>
+        <p>Este diagnóstico identifica oportunidades concretas para triplicar el flujo de leads cualificados en 12 meses mediante acciones accionables, escalables y de bajo riesgo.</p>
+      </div>
+      <div class="alert alert-danger">
+        <svg class="alert-icon" fill="none" stroke="#E8392A" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong style="color:#FF6B5A">Brecha crítica detectada:</strong> El 74% de las empresas mineras y constructoras del sur del Perú inician su búsqueda de maquinaria en Google. Orion no aparece en las primeras posiciones para las búsquedas más rentables del sector.</p>
+      </div>
+    </div>
+    <div>
+      <h4 style="margin-bottom:12px">Hallazgos Clave</h4>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="card-sm">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span class="tag tag-red">CRÍTICO</span>
+            <span style="font-size:13px;font-weight:600;color:var(--orion-text)">Sin embudo de ventas digital</span>
+          </div>
+          <p style="font-size:12px;color:var(--orion-muted);margin:0">Los prospectos que visitan la web no tienen un camino claro hacia la cotización. No hay CRM, seguimiento automático ni nurturing post-contacto.</p>
+        </div>
+        <div class="card-sm">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span class="tag tag-red">CRÍTICO</span>
+            <span style="font-size:13px;font-weight:600;color:var(--orion-text)">Posicionamiento local inexistente</span>
+          </div>
+          <p style="font-size:12px;color:var(--orion-muted);margin:0">Google Business Profile en Arequipa no está optimizado. Empresas locales más pequeñas aparecen primero en búsquedas de "maquinaria pesada Arequipa".</p>
+        </div>
+        <div class="card-sm">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span class="tag tag-gold">ALTO</span>
+            <span style="font-size:13px;font-weight:600;color:var(--orion-text)">Propuesta de valor no diferenciada</span>
+          </div>
+          <p style="font-size:12px;color:var(--orion-muted);margin:0">La web no comunica con claridad la alianza XCMG ni las ventajas técnicas específicas para minería. El mensaje es genérico y podría pertenecer a cualquier competitor.</p>
+        </div>
+        <div class="card-sm">
+          <div style="display:flex;align-items:center;gap=8px;margin-bottom:6px">
+            <span class="tag tag-green">OPORTUNIDAD</span>
+            <span style="font-size:13px;font-weight:600;color:var(--orion-text)">Mercado minero en expansión</span>
+          </div>
+          <p style="font-size:12px;color:var(--orion-muted);margin:0">Arequipa, Moquegua y Tacna concentran proyectos mineros por >USD 8,000M. Orion puede capturar una parte significativa con la estrategia correcta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: DIGITAL PRESENCE ===== -->
+<section class="section" id="s-digital">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 01</div>
+      <div class="section-title">PRESENCIA DIGITAL</div>
+      <div class="section-subtitle">Diagnóstico del sitio web, experiencia de usuario y capacidad comercial online</div>
+    </div>
+    <div class="section-badge">orionmaquinarias.com</div>
+  </div>
+
+  <!-- WEB SCORECARD -->
+  <div class="grid-2" style="margin-bottom:28px">
+    <div class="card">
+      <h3 style="margin-bottom:16px">Puntuación del Sitio Web</h3>
+      <div class="score-bar"><div class="score-bar-label">Diseño & UX</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#D4A843" data-width="68%"></div></div><div class="score-bar-num">68</div></div>
+      <div class="score-bar"><div class="score-bar-label">Propuesta de Valor</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="35%"></div></div><div class="score-bar-num">35</div></div>
+      <div class="score-bar"><div class="score-bar-label">Conversión/CTA</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="30%"></div></div><div class="score-bar-num">30</div></div>
+      <div class="score-bar"><div class="score-bar-label">Catálogo de Equipos</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#2AE87A" data-width="72%"></div></div><div class="score-bar-num">72</div></div>
+      <div class="score-bar"><div class="score-bar-label">Confianza & Social Proof</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="25%"></div></div><div class="score-bar-num">25</div></div>
+      <div class="score-bar"><div class="score-bar-label">SEO Técnico</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#F0963A" data-width="48%"></div></div><div class="score-bar-num">48</div></div>
+      <div class="score-bar"><div class="score-bar-label">Adaptación Móvil</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#D4A843" data-width="65%"></div></div><div class="score-bar-num">65</div></div>
+      <div class="score-bar"><div class="score-bar-label">Velocidad Percibida</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#F0963A" data-width="55%"></div></div><div class="score-bar-num">55</div></div>
+    </div>
+    <div>
+      <div class="card-success" style="margin-bottom:16px">
+        <h4 style="color:#4EF09A;margin-bottom:10px">✓ Lo que funciona</h4>
+        <ul class="check-list green">
+          <li>Sitio web con diseño moderno y tecnología Elementor actualizada</li>
+          <li>Catálogo de equipos organizado por categorías (plantas, mixers, bombas pluma)</li>
+          <li>Presencia en múltiples redes: Instagram, Facebook, TikTok, YouTube</li>
+          <li>GTM implementado — base para analítica avanzada</li>
+          <li>Botón de WhatsApp visible — canal directo para cotizaciones</li>
+          <li>Alianza XCMG visible — credencial de marca internacional</li>
+          <li>Fichas técnicas en PDF (Google Drive) para descarga</li>
+        </ul>
+      </div>
+      <div class="card-danger">
+        <h4 style="color:#FF6B5A;margin-bottom:10px">✗ Lo que frena las ventas</h4>
+        <ul class="check-list red">
+          <li>No hay precios ni rangos orientativos — el comprador no puede evaluar</li>
+          <li>Ausencia de testimonios de clientes verificados o casos de éxito</li>
+          <li>Sin formulario de cotización inteligente (solo redirección a contacto genérico)</li>
+          <li>La propuesta de valor "somos líderes" no explica el por qué ni el diferencial</li>
+          <li>Sin contenido optimizado para búsquedas mineras del sur del Perú</li>
+          <li>Dirección principal es Lima (Lurín) — no comunica presencia en Arequipa</li>
+          <li>Sin video demostrativo de equipos en funcionamiento real</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINDINGS -->
+  <h2>Hallazgos Comerciales del Sitio Web</h2>
+  <div class="grid-3">
+    <div class="card-accent">
+      <h4>Fricción en el proceso de cotización</h4>
+      <p>Un visitante interesado debe navegar hasta "Contacto", completar un formulario genérico y esperar una respuesta. No hay cotización por equipo específico, no hay respuesta automática inmediata, no hay WhatsApp preconfigurado con mensaje de apertura. Estimado de pérdida: <strong style="color:var(--orion-gold)">40–60% de prospectos abandonan</strong> antes de contactar.</p>
+      <div style="margin-top:12px"><span class="tag tag-red">IMPACTO ALTO</span></div>
+    </div>
+    <div class="card">
+      <h4>La marca XCMG no se explota</h4>
+      <p>XCMG es el 3er fabricante de maquinaria pesada del mundo. Orion es dealer oficial. Esto debería ser el argumento central de ventas. En el sitio, el logo aparece pero no hay sección dedicada, casos comparativos, ni explicación de los beneficios de la tecnología china vs. CAT/Komatsu en términos de costo total de operación.</p>
+      <div style="margin-top:12px"><span class="tag tag-gold">OPORTUNIDAD</span></div>
+    </div>
+    <div class="card">
+      <h4>Ausencia de prueba social</h4>
+      <p>No hay testimonios, no hay logotipos de clientes conocidos, no hay casos de estudio. En industrias B2B de alto ticket (USD 50K–500K+), la prueba social es determinante. Los contadores de "obras impulsadas" y "clientes satisfechos" están a cero en la versión actual — están animados pero no muestran valores reales.</p>
+      <div style="margin-top:12px"><span class="tag tag-red">CRÍTICO</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="alert alert-info">
+    <svg class="alert-icon" fill="none" stroke="#2AAFE8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong style="color:#5CC8F0">Oportunidad de conversión rápida:</strong> Agregar un formulario de cotización rápida por equipo (modelo, obra, fecha estimada, capacidad requerida) + respuesta automática por WhatsApp podría aumentar la tasa de conversión del sitio entre un 35–55% en los primeros 90 días.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: SOCIAL MEDIA ===== -->
+<section class="section" id="s-social">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 02</div>
+      <div class="section-title">REDES SOCIALES</div>
+      <div class="section-subtitle">Evaluación de presencia, estrategia de contenido y madurez digital en redes</div>
+    </div>
+    <div class="section-badge">Madurez: BÁSICA–INTERMEDIA</div>
+  </div>
+
+  <div class="grid-4" style="margin-bottom:28px">
+    <div class="kpi-card" style="--kpi-color:#1877F2">
+      <div class="kpi-label">Facebook</div>
+      <div class="kpi-value" style="font-size:32px;color:#1877F2">★★★☆☆</div>
+      <div class="kpi-desc">Activo · Sin estrategia comercial</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#E1306C">
+      <div class="kpi-label">Instagram</div>
+      <div class="kpi-value" style="font-size:32px;color:#E1306C">★★★☆☆</div>
+      <div class="kpi-desc">Presente · Contenido visual básico</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#FF0050">
+      <div class="kpi-label">TikTok</div>
+      <div class="kpi-value" style="font-size:32px;color:#FF0050">★★☆☆☆</div>
+      <div class="kpi-desc">Iniciando · Alta oportunidad</div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#FF0000">
+      <div class="kpi-label">YouTube</div>
+      <div class="kpi-value" style="font-size:32px;color:#FF0000">★★☆☆☆</div>
+      <div class="kpi-desc">Canal activo · Sin estrategia SEO</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:28px">
+    <div class="card">
+      <h3>Evaluación por Dimensión</h3>
+      <div class="divider" style="margin:12px 0"></div>
+      <div class="score-bar"><div class="score-bar-label">Frecuencia publicación</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#D4A843" data-width="60%"></div></div><div class="score-bar-num">60</div></div>
+      <div class="score-bar"><div class="score-bar-label">Calidad visual</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#D4A843" data-width="65%"></div></div><div class="score-bar-num">65</div></div>
+      <div class="score-bar"><div class="score-bar-label">Engagement real</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="25%"></div></div><div class="score-bar-num">25</div></div>
+      <div class="score-bar"><div class="score-bar-label">Generación de leads</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="10%"></div></div><div class="score-bar-num">10</div></div>
+      <div class="score-bar"><div class="score-bar-label">Contenido educativo</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="20%"></div></div><div class="score-bar-num">20</div></div>
+      <div class="score-bar"><div class="score-bar-label">Uso de testimonios</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="15%"></div></div><div class="score-bar-num">15</div></div>
+      <div class="score-bar"><div class="score-bar-label">Estrategia comercial</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="18%"></div></div><div class="score-bar-num">18</div></div>
+      <div class="score-bar"><div class="score-bar-label">LinkedIn B2B</div><div class="score-bar-track"><div class="score-bar-fill" style="width:0%;background:#E8392A" data-width="5%"></div></div><div class="score-bar-num">5</div></div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <h3>Diagnóstico Facebook/Instagram</h3>
+        <p>La presencia de Orion en Facebook muestra actividad de publicación pero el contenido es predominantemente informativo de producto — imágenes de equipos y novedades de marca. Falta la capa comercial: no se publican casos de éxito de clientes, no se invita activamente a cotizar, y no hay campañas segmentadas para el sur del Perú.</p>
+        <p>El engagement es bajo en relación con el potencial del sector. Un contratista en Arequipa buscando información no encuentra contenido relevante sobre proyectos mineros locales, condiciones de Arequipa, o comparativos de equipos para la altitud.</p>
+      </div>
+      <div class="alert alert-warning">
+        <svg class="alert-icon" fill="none" stroke="#D4A843" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <p><strong style="color:var(--orion-gold-light)">LinkedIn es el canal crítico no activado.</strong> Los tomadores de decisión en minería y construcción (gerentes, jefes de operaciones, directores de proyectos) están en LinkedIn. Orion no tiene presencia activa. Esto equivale a no existir para el decisor corporativo.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Oportunidades de Contenido por Canal</h2>
+  <div class="grid-3">
+    <div class="opp-card">
+      <div class="opp-icon">📹</div>
+      <div class="opp-title">TikTok & Reels: Contenido de Obra</div>
+      <div class="opp-desc">Videos de 30–60 segundos mostrando equipos en operación real, comparativas de rendimiento, operadores trabajando. El sector construcción tiene alta tasa de consumo de video corto. Costo mínimo, alcance orgánico enorme.</div>
+      <div class="opp-meta"><span class="tag tag-green">IMPACTO ALTO</span><span class="tag tag-cyan">BAJO COSTO</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">💼</div>
+      <div class="opp-title">LinkedIn: Pensamiento de Liderazgo</div>
+      <div class="opp-desc">Artículos sobre tendencias en maquinaria para minería en Arequipa, comparativas XCMG vs. alternativas, análisis de proyectos del sur del Perú. Posiciona a Orion como referente técnico ante decisores corporativos.</div>
+      <div class="opp-meta"><span class="tag tag-gold">PRIORIDAD ALTA</span><span class="tag tag-orange">INVERSIÓN MEDIA</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🎬</div>
+      <div class="opp-title">YouTube: Canal Técnico</div>
+      <div class="opp-desc">Demos de equipos, tutoriales de operación, mantenimiento preventivo, comparativas técnicas. Posiciona a Orion en búsquedas YouTube que son la segunda fuente de búsqueda industrial en Perú. Alta retención y SEO de largo plazo.</div>
+      <div class="opp-meta"><span class="tag tag-gold">OPORTUNIDAD</span><span class="tag tag-cyan">SEO PERPETUO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: LEAD GENERATION ===== -->
+<section class="section" id="s-leads">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 03</div>
+      <div class="section-title">GENERACIÓN DE LEADS</div>
+      <div class="section-subtitle">Análisis del embudo comercial actual y diseño del embudo optimizado</div>
+    </div>
+    <div class="section-badge">Score actual: 28/100</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px">
+    <!-- CURRENT FUNNEL -->
+    <div class="card">
+      <h3 style="margin-bottom:20px">Embudo Actual — Fricción Máxima</h3>
+      <div class="funnel-stage">
+        <div class="funnel-label">Visitantes web</div>
+        <div class="funnel-bar" style="width:100%;background:rgba(212,168,67,0.3);color:var(--orion-gold-light)">100 visitantes</div>
+        <div class="funnel-num">100%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Exploran catálogo</div>
+        <div class="funnel-bar" style="width:65%;background:rgba(212,168,67,0.22);color:var(--orion-gold-light)">65 visitan equipos</div>
+        <div class="funnel-num">65%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Buscan contactar</div>
+        <div class="funnel-bar" style="width:22%;background:rgba(232,122,42,0.3);color:#F0963A">22 buscan contacto</div>
+        <div class="funnel-num">22%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Llenan formulario</div>
+        <div class="funnel-bar" style="width:8%;background:rgba(232,57,42,0.3);color:#FF6B5A">8 completan form.</div>
+        <div class="funnel-num">8%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Reciben cotización</div>
+        <div class="funnel-bar" style="width:4%;background:rgba(232,57,42,0.5);color:#FF6B5A">4 cotizados</div>
+        <div class="funnel-num">4%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Cierran compra</div>
+        <div class="funnel-bar" style="width:1%;background:rgba(232,57,42,0.7);color:#FF6B5A;min-width:80px">~1 cliente</div>
+        <div class="funnel-num">&lt;1%</div>
+      </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--orion-border)">
+        <p style="font-size:12px;color:var(--orion-red)">⚠ Tasa de conversión web estimada: &lt;1%. Industria objetivo: 3–5%</p>
+      </div>
+    </div>
+
+    <!-- OPTIMIZED FUNNEL -->
+    <div class="card">
+      <h3 style="margin-bottom:20px">Embudo Optimizado — Con Automatización</h3>
+      <div class="funnel-stage">
+        <div class="funnel-label">Visitantes SEO/Ads</div>
+        <div class="funnel-bar" style="width:100%;background:rgba(42,232,122,0.2);color:#4EF09A">300+ visitantes</div>
+        <div class="funnel-num">3x más</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Lead magnet / CTA</div>
+        <div class="funnel-bar" style="width:72%;background:rgba(42,232,122,0.16);color:#4EF09A">Cotización rápida</div>
+        <div class="funnel-num">72%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Lead capturado</div>
+        <div class="funnel-bar" style="width:35%;background:rgba(42,175,232,0.2);color:#5CC8F0">WhatsApp/email auto</div>
+        <div class="funnel-num">35%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Nurturing automático</div>
+        <div class="funnel-bar" style="width:25%;background:rgba(42,175,232,0.3);color:#5CC8F0">CRM + secuencia</div>
+        <div class="funnel-num">25%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Cotización enviada</div>
+        <div class="funnel-bar" style="width:18%;background:rgba(212,168,67,0.3);color:var(--orion-gold-light)">Propuesta técnica</div>
+        <div class="funnel-num">18%</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">Cierre de venta</div>
+        <div class="funnel-bar" style="width:8%;background:rgba(42,232,122,0.5);color:#4EF09A;min-width:80px">~24 clientes</div>
+        <div class="funnel-num">8%</div>
+      </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--orion-border)">
+        <p style="font-size:12px;color:#4EF09A">✓ Proyección: 24x más cierres con el mismo esfuerzo de ventas humano</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Puntos de Fuga Identificados</h2>
+  <div class="grid-3">
+    <div class="card-danger">
+      <h4 style="color:#FF6B5A">Fuga 1: Interés sin captura</h4>
+      <p>Un visitante descarga la ficha técnica de una Bomba Pluma XS37 desde Google Drive. Orion no sabe quién es, no puede contactarlo, no existe seguimiento. Cada descarga de PDF es un prospecto perdido.</p>
+      <p><strong style="color:var(--orion-red)">Solución:</strong> Gate de descarga (email/WhatsApp antes de descargar) + alerta automática al equipo de ventas.</p>
+    </div>
+    <div class="card-danger">
+      <h4 style="color:#FF6B5A">Fuga 2: Sin respuesta inmediata</h4>
+      <p>Cuando un prospecto llena el formulario, no recibe respuesta automática. En B2B industrial, el tiempo de respuesta es crítico: empresas que responden en menos de 5 minutos tienen 21x más probabilidad de contacto exitoso.</p>
+      <p><strong style="color:var(--orion-red)">Solución:</strong> WhatsApp Business API + mensaje automático de confirmación en &lt;60 segundos.</p>
+    </div>
+    <div class="card-danger">
+      <h4 style="color:#FF6B5A">Fuga 3: Sin seguimiento post-contacto</h4>
+      <p>Si el prospecto no compra en la primera interacción, desaparece. No hay CRM, no hay secuencia de seguimiento, no hay email de reactivación. En maquinaria pesada, el ciclo de compra puede durar 3–12 meses.</p>
+      <p><strong style="color:var(--orion-red)">Solución:</strong> CRM con pipeline de oportunidades + secuencia automatizada de 8 touchpoints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: BRAND ===== -->
+<section class="section" id="s-brand">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 04</div>
+      <div class="section-title">POSICIONAMIENTO DE MARCA</div>
+      <div class="section-subtitle">Identidad, diferenciación y reputación digital de Orion Maquinarias</div>
+    </div>
+    <div class="section-badge">Score: 38/100</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:28px">
+    <div>
+      <div class="card-accent" style="margin-bottom:16px">
+        <h3>¿Por qué elegir Orion sobre la competencia?</h3>
+        <div class="alert alert-danger" style="margin:12px 0">
+          <svg class="alert-icon" fill="none" stroke="#E8392A" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p><strong style="color:#FF6B5A">La respuesta no es clara en la comunicación actual.</strong> El mensaje "20 años de experiencia + soluciones integrales + soporte técnico" es exactamente el mismo que usa cualquier competidor.</p>
+        </div>
+        <p>Un gerente de operaciones en Arequipa que visita la web de Orion y luego la de Ferreyros o Maquiperu no encontrará una razón específica y memorable para preferir Orion. Esto es la raíz del problema de conversión.</p>
+        <p><strong style="color:var(--orion-gold)">Los 3 diferenciadores reales que Orion NO está comunicando:</strong></p>
+        <ul class="check-list gold" style="margin-top:8px">
+          <li>Dealer oficial XCMG — 3er fabricante mundial, precio/rendimiento superior a CAT en segmentos clave</li>
+          <li>Especialización en equipos para concreto (bombas pluma, mixers, plantas) — nicho no saturado en Arequipa</li>
+          <li>Presencia ferial: EXCON 2025 + PERUMIN 37 — credenciales de autoridad sectorial</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <h3>Arquitectura de Marca Recomendada</h3>
+        <div class="divider" style="margin:12px 0"></div>
+        <h4>Promesa principal</h4>
+        <p style="background:rgba(212,168,67,0.08);border-left:3px solid var(--orion-gold);padding:10px 14px;border-radius:0 4px 4px 0;font-size:13px;color:var(--orion-text);margin-bottom:12px">"Tecnología XCMG con el respaldo local que su obra necesita en el sur del Perú"</p>
+        <h4>Pilares de marca</h4>
+        <ul class="check-list cyan">
+          <li><strong>Rendimiento comprobado:</strong> Datos técnicos reales, no afirmaciones genéricas</li>
+          <li><strong>Accesibilidad financiera:</strong> Mejor relación costo-operación vs. marcas premium</li>
+          <li><strong>Soporte local:</strong> Técnicos en Arequipa, repuestos en stock, respuesta en horas</li>
+          <li><strong>Conocimiento del sector:</strong> Expertos en condiciones mineras de altitud</li>
+        </ul>
+      </div>
+      <div class="card-sm">
+        <h4>Identidad Visual</h4>
+        <p style="font-size:12px;color:var(--orion-muted)">Logo limpio con identidad XCMG integrada. Colores consistentes. Oportunidad de desarrollar brand guidelines formales para mayor coherencia en todos los puntos de contacto (web, redes, propuestas comerciales, uniformes, equipos).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h4>Reputación Digital</h4>
+      <p>No se detectan reseñas negativas públicas significativas. Google Business Profile sin suficientes reseñas verificadas. No hay presencia en directorios industriales (Redmin, Directorio Minero, PromPerú). Oportunidad de construir reputación positiva desde cero.</p>
+      <span class="tag tag-gold">OPORTUNIDAD LIMPIA</span>
+    </div>
+    <div class="card">
+      <h4>Autoridad de Contenido</h4>
+      <p>El blog existe pero tiene muy poco contenido técnico orientado a la decisión de compra. Artículos sobre ferias y novedades, pero ningún artículo posicionado para búsquedas como "costo de planta de concreto en Arequipa" o "bombas pluma para minería". Oportunidad enorme de captura orgánica.</p>
+      <span class="tag tag-red">URGENTE</span>
+    </div>
+    <div class="card">
+      <h4>Posición en el Mercado Sur</h4>
+      <p>La sede física en Lima (Lurín) crea una percepción de empresa limeña. Para conquistar el mercado del sur — Arequipa, Moquegua, Puno, Tacna — se necesita comunicar activamente la presencia y capacidad de servicio en la región, más allá del anuncio de expansión.</p>
+      <span class="tag tag-orange">ESTRATÉGICO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: COMPETITORS ===== -->
+<section class="section" id="s-competitors">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 05</div>
+      <div class="section-title">ANÁLISIS COMPETITIVO</div>
+      <div class="section-subtitle">Comparativa estratégica vs. Ferreyros (CAT), Komatsu-Mitsui (KMMP) y Maquiperu</div>
+    </div>
+    <div class="section-badge">3 competidores analizados</div>
+  </div>
+
+  <div class="alert alert-info" style="margin-bottom:24px">
+    <svg class="alert-icon" fill="none" stroke="#2AAFE8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong style="color:#5CC8F0">Competidores seleccionados:</strong> <strong>Ferreyros</strong> (distribuidor CAT, líder absoluto en minería pesada), <strong>Komatsu-Mitsui KMMP</strong> (68% del segmento minería de tajo abierto), <strong>Maquiperu</strong> (dealer Hyundai, fuerte en construcción, digital avanzado). Representan el espectro completo del mercado peruano.</p>
+  </div>
+
+  <!-- COMPARISON CHART -->
+  <div class="card" style="margin-bottom:24px">
+    <h4 style="margin-bottom:16px">Comparativa de Madurez Digital</h4>
+    <div style="height:260px"><canvas id="compChart"></canvas></div>
+  </div>
+
+  <!-- TABLE -->
+  <div style="border-radius:8px;overflow:hidden;border:1px solid var(--orion-border);margin-bottom:28px">
+    <div class="comp-row">
+      <div class="comp-cell header">Variable</div>
+      <div class="comp-cell header" style="color:var(--orion-gold)">Orion Maquinarias</div>
+      <div class="comp-cell header">Ferreyros / CAT</div>
+      <div class="comp-cell header">Komatsu-Mitsui</div>
+      <div class="comp-cell header">Maquiperu</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Web profesional</div>
+      <div class="comp-cell orion"><span class="check-partial">◑</span> Moderna, funcional</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Corporativa, robusta</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Profesional, sectorial</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Moderna con e-shop</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Catálogo digital</div>
+      <div class="comp-cell orion"><span class="check-partial">◑</span> Bueno, incompleto</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Completo con specs</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Técnico detallado</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Con precios ref.</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Formulario cotización</div>
+      <div class="comp-cell orion"><span class="check-partial">◑</span> Genérico</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Por equipo, rápido</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> WhatsApp directo</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Múltiple canal</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">WhatsApp integrado</div>
+      <div class="comp-cell orion"><span class="check-yes">✓</span> Botón presente</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> API + CRM</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> API + respuesta auto</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Activo</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Casos de éxito</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No tiene</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Múltiples, detallados</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Por sector/mina</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Algunos</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Testimonios</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No tiene</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Video + texto</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Por industria</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Básicos</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Contenido técnico</div>
+      <div class="comp-cell orion"><span class="check-partial">◑</span> PDFs básicos</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Blog + white papers</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Centro técnico</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Noticias sector</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">SEO posicionado</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> Débil</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Domina keywords</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Alta autoridad</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Intermedio</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">LinkedIn activo</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> Inexistente</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> 531K seguidores</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Activo B2B</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Básico</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">CRM / Automatización</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No tiene</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Plataforma propia</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> CRM enterprise</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> En proceso</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">E-commerce / Marketplace</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No tiene</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Maquinet + Parts.Cat.com</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Repuestos online</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> MAQUISHOP activo</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Google Ads activo</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No verificado</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Presupuesto alto</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Activo</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Ocasional</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Diferenciación clara</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> Genérica</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Legado CAT + datos</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Minería especializ.</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Precio + variedad</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Formación / Academia</div>
+      <div class="comp-cell orion"><span class="check-no">✗</span> No tiene</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Ferreyros Institute</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Centro SENATI</div>
+      <div class="comp-cell"><span class="check-no">✗</span> No tiene</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell header">Presencia regional Sur Perú</div>
+      <div class="comp-cell orion"><span class="check-partial">◑</span> Comunicada débil</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> 80+ años en Arequipa</div>
+      <div class="comp-cell"><span class="check-yes">✓</span> Centro SENATI Aqp</div>
+      <div class="comp-cell"><span class="check-partial">◑</span> Lima-céntrico</div>
+    </div>
+  </div>
+
+  <div class="alert alert-success">
+    <svg class="alert-icon" fill="none" stroke="#2AE87A" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    <p><strong style="color:#4EF09A">Ventaja competitiva real de Orion:</strong> Ferreyros y KMMP dominan la gran minería con presupuestos corporativos enormes. Sin embargo, el segmento de <strong>equipos para concreto (bombas pluma, mixers, plantas)</strong> en el sur del Perú está sub-atendido digitalmente. Orion puede ser el líder indiscutible de este nicho con una inversión digital relativamente pequeña comparada con sus grandes competidores.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION: MARKETING OPPORTUNITIES ===== -->
+<section class="section" id="s-marketing">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 06</div>
+      <div class="section-title">OPORTUNIDADES DE MARKETING</div>
+      <div class="section-subtitle">Canal por canal — priorizado por impacto en generación de cotizaciones</div>
+    </div>
+    <div class="section-badge">12 oportunidades identificadas</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:28px">
+    <div class="card">
+      <h4 style="margin-bottom:16px">Prioridad de Oportunidades por Impacto</h4>
+      <div style="height:260px"><canvas id="oppChart"></canvas></div>
+    </div>
+    <div>
+      <h4 style="margin-bottom:12px">Oportunidades Críticas</h4>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="matrix-item">
+          <div class="matrix-rank">01</div>
+          <div class="matrix-bars">
+            <div class="matrix-label">SEO Local Arequipa</div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Impacto</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:90%;background:var(--orion-green)"></div></div></div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Esfuerzo</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:40%;background:var(--orion-cyan)"></div></div></div>
+          </div>
+          <span class="tag tag-green">ALTA PRIORIDAD</span>
+        </div>
+        <div class="matrix-item">
+          <div class="matrix-rank">02</div>
+          <div class="matrix-bars">
+            <div class="matrix-label">Google Ads — Palabras Clave Mineras</div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Impacto</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:88%;background:var(--orion-green)"></div></div></div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Esfuerzo</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:55%;background:var(--orion-cyan)"></div></div></div>
+          </div>
+          <span class="tag tag-green">ALTA PRIORIDAD</span>
+        </div>
+        <div class="matrix-item">
+          <div class="matrix-rank">03</div>
+          <div class="matrix-bars">
+            <div class="matrix-label">WhatsApp API + Seguimiento Automático</div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Impacto</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:85%;background:var(--orion-gold)"></div></div></div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Esfuerzo</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:45%;background:var(--orion-cyan)"></div></div></div>
+          </div>
+          <span class="tag tag-gold">ALTA PRIORIDAD</span>
+        </div>
+        <div class="matrix-item">
+          <div class="matrix-rank">04</div>
+          <div class="matrix-bars">
+            <div class="matrix-label">LinkedIn B2B Mining</div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Impacto</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:80%;background:var(--orion-gold)"></div></div></div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Esfuerzo</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:60%;background:var(--orion-cyan)"></div></div></div>
+          </div>
+          <span class="tag tag-gold">MEDIA–ALTA</span>
+        </div>
+        <div class="matrix-item">
+          <div class="matrix-rank">05</div>
+          <div class="matrix-bars">
+            <div class="matrix-label">Email Marketing / Reactivación leads</div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Impacto</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:70%;background:var(--orion-orange)"></div></div></div>
+            <div class="matrix-bar-row"><div class="matrix-bar-label">Esfuerzo</div><div class="matrix-bar-track"><div class="matrix-bar-fill" style="width:35%;background:var(--orion-cyan)"></div></div></div>
+          </div>
+          <span class="tag tag-orange">MEDIA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Oportunidades por Canal</h2>
+  <div class="grid-3" style="margin-bottom:28px">
+    <div class="opp-card">
+      <div class="opp-icon">🔍</div>
+      <div class="opp-title">SEO Industrial + Local Arequipa</div>
+      <div class="opp-desc">Crear contenido optimizado para búsquedas de alto valor: "planta de concreto Arequipa", "bomba pluma alquiler minería", "mixer XCMG precio Perú". Cada artículo posicionado puede generar 20–50 leads orgánicos por mes a costo cero marginal.</div>
+      <div class="opp-meta"><span class="tag tag-green">IMPACTO MUY ALTO</span><span class="tag tag-cyan">3–6 MESES</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">📍</div>
+      <div class="opp-title">Google Business Profile Arequipa</div>
+      <div class="opp-desc">Optimizar completamente el perfil de GBP con fotos de equipos, horarios, descripción técnica, respuesta a reseñas y publicaciones semanales. Las empresas que buscan proveedores locales en Google Maps representan el 40% del volumen de búsquedas B2B locales.</div>
+      <div class="opp-meta"><span class="tag tag-green">QUICK WIN</span><span class="tag tag-cyan">0–30 DÍAS</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🎯</div>
+      <div class="opp-title">Google Ads — Campañas Sectoriales</div>
+      <div class="opp-desc">Campañas por keyword de alta intención: "cotizar maquinaria minería Arequipa", "bomba pluma concreto precio", "planta concreto estacionaria XCMG". En B2B industrial el CPC es alto pero el valor de cada lead justifica ampliamente la inversión.</div>
+      <div class="opp-meta"><span class="tag tag-gold">RETORNO ALTO</span><span class="tag tag-orange">INV. S/ 3,000–8,000/mes</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">💼</div>
+      <div class="opp-title">LinkedIn Ads — Decisores B2B</div>
+      <div class="opp-desc">Segmentación por cargo (Gerente de Operaciones, Director de Proyectos, Jefe de Planta) + industria (minería, construcción) + región (sur del Perú). Sponsored InMail personalizado con propuesta técnica específica. El 73% de los decisores B2B en Perú están en LinkedIn.</div>
+      <div class="opp-meta"><span class="tag tag-gold">ALTA CALIDAD LEAD</span><span class="tag tag-orange">INV. S/ 4,000–10,000/mes</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">📧</div>
+      <div class="opp-title">Email Marketing Segmentado</div>
+      <div class="opp-desc">Secuencias automatizadas post-cotización: Day 1 (confirmación técnica), Day 3 (caso de éxito relevante), Day 7 (oferta específica), Day 14 (seguimiento), Day 30 (reactivación). En maquinaria pesada, el nurturing puede durar hasta 6 meses.</div>
+      <div class="opp-meta"><span class="tag tag-cyan">BAJO COSTO</span><span class="tag tag-green">ALTO RETORNO</span></div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-icon">🔄</div>
+      <div class="opp-title">Remarketing Inteligente</div>
+      <div class="opp-desc">Anuncios personalizados para visitantes web que no convirtieron. Si alguien visitó la ficha de la Bomba Pluma XS37, recibirá un anuncio específico de ese equipo con CTA a cotizar. El remarketing en B2B industrial tiene CTR 3–5x superior a prospección fría.</div>
+      <div class="opp-meta"><span class="tag tag-green">EFICIENCIA ALTA</span><span class="tag tag-cyan">BAJO COSTO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: AI & AUTOMATION ===== -->
+<section class="section" id="s-ai">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 07</div>
+      <div class="section-title">IA Y AUTOMATIZACIÓN</div>
+      <div class="section-subtitle">Iniciativas de transformación digital para escalar sin escalar el equipo humano</div>
+    </div>
+    <div class="section-badge">Score actual: 15/100</div>
+  </div>
+
+  <div class="alert alert-info" style="margin-bottom:24px">
+    <svg class="alert-icon" fill="none" stroke="#2AAFE8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong style="color:#5CC8F0">Contexto de IA en el sector:</strong> Ferreyros ya lanzó su plataforma digital con monitoreo remoto, diagnóstico predictivo y e-commerce de repuestos. Komatsu implementó el primer camión autónomo en minería peruana. Orion tiene una ventana de 12–18 meses para implementar IA antes de que se convierta en una expectativa estándar del mercado.</p>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:28px">
+    <div class="ai-card" style="--card-accent:#D4A843">
+      <div class="ai-title">🤖 Chatbot de Ventas + Cotización</div>
+      <div class="ai-desc">IA conversacional en el sitio web que guía al visitante hacia la cotización correcta: identifica el tipo de obra, la capacidad requerida, el presupuesto aproximado y genera una propuesta inicial automática. Disponible 24/7, responde en español técnico.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-green)">★★★★★</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-gold)">Media</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 800–2,000/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>1–2 meses</span></div>
+      </div>
+    </div>
+    <div class="ai-card" style="--card-accent:#2AAFE8">
+      <div class="ai-title">📱 WhatsApp Business API + CRM</div>
+      <div class="ai-desc">Automatización del canal de atención más usado en Perú. Mensajes automáticos de bienvenida, captura de datos del prospecto, routing inteligente al asesor correcto, seguimiento de cotizaciones pendientes, recordatorios de mantenimiento para clientes existentes.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-green)">★★★★★</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-gold)">Media</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 500–1,500/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>2–4 semanas</span></div>
+      </div>
+    </div>
+    <div class="ai-card" style="--card-accent:#2AE87A">
+      <div class="ai-title">🏆 CRM con Scoring de Prospectos</div>
+      <div class="ai-desc">Sistema que clasifica automáticamente los leads por probabilidad de compra: tamaño de la empresa, sector, equipo solicitado, comportamiento en el sitio, interacciones previas. El equipo de ventas enfoca su tiempo en los prospectos de mayor valor.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-green)">★★★★☆</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-orange)">Media-Alta</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 300–1,000/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>1–3 meses</span></div>
+      </div>
+    </div>
+    <div class="ai-card" style="--card-accent:#F0963A">
+      <div class="ai-title">📊 IA para Generación de Contenido</div>
+      <div class="ai-desc">Uso de IA para generar artículos técnicos, fichas de comparativas, descripciones optimizadas de productos, respuestas a consultas frecuentes. Multiplica la capacidad de producción de contenido x10 sin aumentar el equipo de marketing.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-gold)">★★★★☆</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-green)">Baja</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 100–400/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>Inmediato</span></div>
+      </div>
+    </div>
+    <div class="ai-card" style="--card-accent:#E8392A">
+      <div class="ai-title">🔧 Alertas de Mantenimiento Predictivo</div>
+      <div class="ai-desc">Para equipos vendidos, crear un sistema de alertas basado en horas de operación y ciclos de mantenimiento recomendados por XCMG. El cliente recibe un mensaje automático cuando debe programar su servicio, generando ingresos recurrentes de postventa y fidelización.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-gold)">★★★★☆</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-orange)">Media</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 1,000–3,000/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>3–6 meses</span></div>
+      </div>
+    </div>
+    <div class="ai-card" style="--card-accent:#9B59B6">
+      <div class="ai-title">📈 Dashboard de Inteligencia Comercial</div>
+      <div class="ai-desc">Panel ejecutivo con datos en tiempo real: proyectos mineros activos en el sur del Perú, licitaciones publicadas, empresas en expansión, señales de compra intención. Permite a Orion hacer prospección proactiva antes de que el cliente empiece a cotizar.</div>
+      <div class="ai-meta-row">
+        <div class="ai-meta-item"><span>Impacto</span><span style="color:var(--orion-gold)">★★★☆☆</span></div>
+        <div class="ai-meta-item"><span>Dificultad</span><span style="color:var(--orion-red)">Alta</span></div>
+        <div class="ai-meta-item"><span>Inversión</span><span>S/ 2,000–5,000/mes</span></div>
+        <div class="ai-meta-item"><span>Plazo</span><span>6–12 meses</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: NEW BUSINESS UNITS ===== -->
+<section class="section" id="s-new-biz">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 08</div>
+      <div class="section-title">NUEVAS UNIDADES DE NEGOCIO</div>
+      <div class="section-subtitle">Oportunidades de expansión digital con potencial de ingresos recurrentes</div>
+    </div>
+    <div class="section-badge">5 unidades propuestas</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px">
+    <div class="card-accent">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="font-size:24px">🏪</span>
+            <h3>Plataforma de Alquiler Online</h3>
+            <span class="tag tag-green">PRIORITARIO</span>
+          </div>
+          <p>Marketplace propio donde empresas constructoras y mineras del sur del Perú pueden solicitar equipos en alquiler en línea: seleccionar modelo, fechas, calcular costo estimado y confirmar disponibilidad. El mercado de alquiler de maquinaria en Perú creció 18% en 2025. Orion puede capturar clientes que hoy acuden a Trademap, Maconser o GAM.</p>
+          <p><strong style="color:var(--orion-gold)">Diferenciador clave:</strong> Especialización en equipos para concreto (bombas, mixers) que los competidores de alquiler no tienen en su portfolio o tienen en cantidades limitadas.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:240px">
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-green)">ALTO</div><div style="font-size:10px;color:var(--orion-muted)">POTENCIAL</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold)">MEDIA</div><div style="font-size:10px;color:var(--orion-muted)">DIFICULTAD</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-cyan)">S/40K</div><div style="font-size:10px;color:var(--orion-muted)">INVERSIÓN</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-green)">12x</div><div style="font-size:10px;color:var(--orion-muted)">ROI ESTIMADO</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="font-size:24px">🎓</span>
+            <h3>Academia Técnica Orion Online</h3>
+            <span class="tag tag-gold">ALTA OPORTUNIDAD</span>
+          </div>
+          <p>Plataforma de formación técnica online para operadores y técnicos de maquinaria XCMG y equipos para concreto. Cursos de operación segura, mantenimiento preventivo, resolución de fallas. Modelo freemium: contenido básico gratuito (genera leads) + certificaciones pagadas.</p>
+          <p>Ferreyros ya tiene su "Ferreyros Institute" y KMMP creó un centro SENATI en Arequipa. Orion puede diferenciarse con contenido accesible, en línea y específico para equipos XCMG — algo que ningún competidor tiene.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:240px">
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold)">ALTO</div><div style="font-size:10px;color:var(--orion-muted)">POTENCIAL</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-green)">BAJA</div><div style="font-size:10px;color:var(--orion-muted)">DIFICULTAD</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-cyan)">S/15K</div><div style="font-size:10px;color:var(--orion-muted)">INVERSIÓN</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-green)">8x</div><div style="font-size:10px;color:var(--orion-muted)">ROI ESTIMADO</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="font-size:24px">🔩</span>
+            <h3>Tienda Online de Repuestos XCMG</h3>
+            <span class="tag tag-gold">INGRESO RECURRENTE</span>
+          </div>
+          <p>E-commerce especializado en repuestos originales XCMG con catálogo completo, búsqueda por número de parte y modelo, stock en tiempo real, y despacho a obras. Ferreyros ya supera S/ 1,000 millones en ventas de repuestos online. El mercado existe y está creciendo agresivamente.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:240px">
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold)">ALTO</div><div style="font-size:10px;color:var(--orion-muted)">POTENCIAL</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold)">MEDIA</div><div style="font-size:10px;color:var(--orion-muted)">DIFICULTAD</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-cyan)">S/25K</div><div style="font-size:10px;color:var(--orion-muted)">INVERSIÓN</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-green)">15x</div><div style="font-size:10px;color:var(--orion-muted)">ROI ESTIMADO</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="font-size:24px">📊</span>
+            <h3>Portal de Clientes + Historial de Equipos</h3>
+            <span class="tag tag-cyan">FIDELIZACIÓN</span>
+          </div>
+          <p>Acceso privado para clientes donde pueden revisar el historial de mantenimiento de sus equipos, descargar manuales, programar servicios, hacer pedidos de repuestos y acceder a informes de rendimiento. Aumenta la retención y facilita la venta cruzada de equipos adicionales.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:240px">
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-gold)">MEDIO</div><div style="font-size:10px;color:var(--orion-muted)">POTENCIAL</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orion-orange)">MEDIA</div><div style="font-size:10px;color:var(--orion-muted)">DIFICULTAD</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-cyan)">S/20K</div><div style="font-size:10px;color:var(--orion-muted)">INVERSIÓN</div></div>
+          <div class="card-sm" style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orion-green)">5x</div><div style="font-size:10px;color:var(--orion-muted)">ROI ESTIMADO</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION: ROADMAP ===== -->
+<section class="section" id="s-roadmap">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Módulo 09</div>
+      <div class="section-title">PLAN ESTRATÉGICO 12 MESES</div>
+      <div class="section-subtitle">Hoja de ruta de implementación en tres horizontes — de Quick Wins a Transformación Digital</div>
+    </div>
+    <div class="section-badge">25 acciones · 3 horizontes</div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:28px">
+    <div class="kpi-card" style="--kpi-color:#2AE87A">
+      <div class="kpi-label">Corto Plazo</div>
+      <div class="kpi-value" style="font-size:32px">0–3 MESES</div>
+      <div class="kpi-desc">Quick Wins · Bases · Conversión rápida</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="33%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#D4A843">
+      <div class="kpi-label">Mediano Plazo</div>
+      <div class="kpi-value" style="font-size:32px">3–6 MESES</div>
+      <div class="kpi-desc">Escalamiento · Automatización · Marca</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="66%"></div></div>
+    </div>
+    <div class="kpi-card" style="--kpi-color:#2AAFE8">
+      <div class="kpi-label">Largo Plazo</div>
+      <div class="kpi-value" style="font-size:32px">6–12 MESES</div>
+      <div class="kpi-desc">Transformación · IA · Nuevas unidades</div>
+      <div class="kpi-bar"><div class="kpi-fill" style="width:0%" data-width="100%"></div></div>
+    </div>
+  </div>
+
+  <!-- ROADMAP CHART -->
+  <div class="card" style="margin-bottom:28px">
+    <h4 style="margin-bottom:16px">Cronograma de Implementación</h4>
+    <div style="height:280px"><canvas id="ganttChart"></canvas></div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <h2 style="margin-bottom:4px">Fase 1 — Quick Wins (0–3 meses)</h2>
+  <p style="color:var(--orion-muted);margin-bottom:16px;font-size:13px">Acciones de alto impacto y ejecución rápida. Objetivo: primeras cotizaciones digitales en menos de 60 días.</p>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:32px">
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">SEMANA 1–2</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Optimizar Google Business Profile Arequipa + Lima</h3>
+          <span class="tag tag-green">QUICK WIN</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Agregar fotos profesionales de equipos, descripción técnica completa, horarios, productos destacados, responder reseñas existentes. Primer resultado visible: aparición en búsquedas locales en 1–2 semanas.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-green">Esfuerzo: Bajo</span><span class="tag tag-gold">Inversión: S/ 0</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">SEMANA 1–3</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Instalar WhatsApp Business API con respuesta automática</h3>
+          <span class="tag tag-green">ALTA PRIORIDAD</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Mensaje automático de bienvenida, captura de nombre/empresa/equipo de interés, routing al asesor correcto. Elimina la fuga del 60% de contactos que no reciben respuesta rápida.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Muy Alto</span><span class="tag tag-green">Esfuerzo: Bajo</span><span class="tag tag-gold">Inversión: S/ 300–500/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">SEMANA 2–4</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Agregar formulario de cotización rápida por equipo en el sitio web</h3>
+          <span class="tag tag-green">CONVERSIÓN</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Formulario en cada ficha de producto: equipo de interés, tipo de obra, región, empresa, nombre, teléfono. CTA: "Cotizar ahora — respuesta en 2 horas". Notificación automática al equipo de ventas.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Muy Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-gold">Inversión: S/ 500–1,500</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">MES 1–2</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Crear sección de Casos de Éxito + Testimonios</h3>
+          <span class="tag tag-gold">CONFIANZA</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Documentar 3–5 proyectos reales de clientes: nombre de obra/empresa (con permiso), equipo utilizado, resultados medibles (m³/hora, tiempo de proyecto, ahorro vs. alternativa). Video de 60 segundos por caso.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-gold">Inversión: S/ 1,000–3,000</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">MES 1–2</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Gate de descarga en fichas técnicas PDF</h3>
+          <span class="tag tag-gold">LEAD CAPTURE</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Antes de descargar el PDF técnico, el visitante deja su email y empresa. Cada descarga se convierte en un lead calificado. Se estima que por cada 10 visitas al catálogo, 3–4 personas descargan fichas técnicas.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-green">Esfuerzo: Bajo</span><span class="tag tag-gold">Inversión: S/ 0–500</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">MES 2–3</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Lanzar perfil LinkedIn empresarial + primeras 10 publicaciones</h3>
+          <span class="tag tag-cyan">B2B</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Perfil profesional completo, los primeros contenidos: logros ferias (EXCON, PERUMIN), lanzamiento XCMG, artículo de perspectiva sobre maquinaria en el sur del Perú. Comenzar a conectar con decisores de mineras y constructoras arequipeñas.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-gold">Inversión: S/ 0–200/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">MES 2–3</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Implementar CRM básico (HubSpot Free o Pipedrive)</h3>
+          <span class="tag tag-gold">PIPELINE</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Registrar todos los leads actuales, definir etapas del pipeline (prospecto → cotización → negociación → cierre → postventa), asignar responsables. Sin CRM, el equipo de ventas no puede escalar de forma ordenada.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-green">Inversión: S/ 0–500/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-green)">MES 3</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Primeros 3 artículos SEO para búsquedas de alta intención</h3>
+          <span class="tag tag-gold">SEO</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Artículos optimizados: "¿Cuánto cuesta una planta de concreto en Perú?", "Bomba pluma vs. bomba estacionaria: cuál elegir", "XCMG vs. Caterpillar en construcción: comparativa técnica 2026".</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-green">Esfuerzo: Bajo</span><span class="tag tag-green">Inversión: S/ 0–800</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <h2 style="margin-bottom:4px">Fase 2 — Escalamiento (3–6 meses)</h2>
+  <p style="color:var(--orion-muted);margin-bottom:16px;font-size:13px">Construir sobre las bases de la Fase 1. Activar canales pagados y automatización avanzada.</p>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:32px">
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-gold)">MES 3–4</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Activar Google Ads — campañas de búsqueda sectorial</h3>
+          <span class="tag tag-gold">PAID MEDIA</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Campañas segmentadas por equipo y región: bombas pluma, mixers, plantas de concreto en Arequipa/Moquegua/Puno. Presupuesto inicial S/ 5,000–8,000/mes. Landing page dedicada por campaña para maximizar conversión.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Muy Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-orange">Inversión: S/ 5K–8K/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-gold)">MES 3–5</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Lanzar chatbot de cotización en el sitio web</h3>
+          <span class="tag tag-cyan">IA</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Chatbot entrenado con el catálogo de equipos Orion, preguntas frecuentes técnicas, proceso de cotización. Responde en horario no laborable, califica al lead, programa llamada con asesor.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-gold">Inversión: S/ 800–2K/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-gold)">MES 4–5</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Estrategia de contenido TikTok + Reels (12 videos/mes)</h3>
+          <span class="tag tag-orange">VIDEO</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Videos cortos de alto impacto: equipos en acción, comparativas de rendimiento, días de campo, operadores reales. Meta: 50,000+ vistas orgánicas por mes en 90 días. Redirigir tráfico a formulario de cotización.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-green">Esfuerzo: Bajo–Medio</span><span class="tag tag-gold">Inversión: S/ 1K–3K/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-gold)">MES 4–6</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Email marketing + secuencias de nurturing automático</h3>
+          <span class="tag tag-gold">NURTURING</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">8 emails automáticos para cada lead no convertido: casos de éxito, especificaciones técnicas, comparativas, testimonios, oferta especial. Reactivación mensual de leads fríos del CRM.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-green">Esfuerzo: Bajo</span><span class="tag tag-green">Inversión: S/ 200–600/mes</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-gold)">MES 5–6</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">LinkedIn Ads — prospección de cuentas objetivo</h3>
+          <span class="tag tag-cyan">ABM</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Account-Based Marketing: identificar 50 empresas objetivo del sur del Perú (mineras, constructoras, concreteras), crear contenido personalizado para sus decisores, campaña de InMail con invitación a demo/visita técnica.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-orange">Esfuerzo: Medio–Alto</span><span class="tag tag-orange">Inversión: S/ 4K–8K/mes</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <h2 style="margin-bottom:4px">Fase 3 — Transformación Digital (6–12 meses)</h2>
+  <p style="color:var(--orion-muted);margin-bottom:16px;font-size:13px">Consolidación del liderazgo digital en el segmento equipos para concreto del sur del Perú.</p>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:32px">
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-cyan)">MES 6–8</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Lanzar Academia Técnica Orion Online</h3>
+          <span class="tag tag-cyan">NUEVA UNIDAD</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Plataforma de formación técnica: cursos de operación XCMG, mantenimiento preventivo, certificaciones. Freemium: contenido básico gratuito + cursos premium S/ 299–599. Genera leads calificados + ingresos adicionales.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-orange">Inversión: S/ 15K–25K</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-cyan)">MES 7–9</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">E-commerce de repuestos XCMG (ORION SHOP)</div>
+          <span class="tag tag-cyan">NUEVA UNIDAD</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Tienda online de repuestos originales: filtros, sellos, piezas de desgaste, componentes hidráulicos. Stock actualizado en tiempo real, despacho a obras en 24–72h en el sur del Perú.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Muy Alto</span><span class="tag tag-gold">Esfuerzo: Alto</span><span class="tag tag-orange">Inversión: S/ 20K–35K</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-cyan)">MES 8–10</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Sistema de alertas de mantenimiento predictivo</h3>
+          <span class="tag tag-cyan">IA + FIDELIZACIÓN</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Para clientes con equipos vendidos: alertas automáticas basadas en horas de operación, recordatorios de servicio, propuestas automáticas de repuestos. Transforma la relación post-venta de reactiva a proactiva.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-gold">Esfuerzo: Medio</span><span class="tag tag-gold">Inversión: S/ 5K–15K</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-cyan)">MES 9–12</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Portal de Clientes Orion + App móvil básica</h3>
+          <span class="tag tag-cyan">ECOSISTEMA</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Historial de equipos, estado de pedidos de repuestos, programación de servicios, acceso a manuales técnicos, contacto directo con técnico asignado. Diferenciador clave frente a todos los competidores en el segmento.</p>
+        <div class="roadmap-tags"><span class="tag tag-cyan">Impacto: Alto</span><span class="tag tag-orange">Esfuerzo: Alto</span><span class="tag tag-orange">Inversión: S/ 25K–50K</span></div>
+      </div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-phase" style="color:var(--orion-cyan)">MES 10–12</div>
+      <div class="roadmap-content">
+        <div class="roadmap-header">
+          <h3 style="margin:0">Plataforma de Alquiler Digital — ORION RENTA</h3>
+          <span class="tag tag-gold">MAYOR OPORTUNIDAD</span>
+        </div>
+        <p style="font-size:12px;color:var(--orion-muted);margin:4px 0 0">Marketplace propio para alquiler de equipos: disponibilidad en tiempo real, cotización online, reserva confirmada en 24 horas. Posiciona a Orion como el líder digital de alquiler de equipos para concreto en el sur del Perú.</p>
+        <div class="roadmap-tags"><span class="tag tag-green">Impacto: Muy Alto</span><span class="tag tag-orange">Esfuerzo: Alto</span><span class="tag tag-orange">Inversión: S/ 30K–60K</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="card-accent">
+    <h3>Proyección de Resultados — 12 Meses</h3>
+    <div class="grid-4" style="margin-top:20px">
+      <div style="text-align:center">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--orion-green);line-height:1">3–5x</div>
+        <div style="font-size:12px;color:var(--orion-muted);margin-top:4px">Volumen de leads<br>digitales mensuales</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--orion-gold);line-height:1">+65%</div>
+        <div style="font-size:12px;color:var(--orion-muted);margin-top:4px">Tasa de conversión<br>web estimada</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--orion-cyan);line-height:1">#1</div>
+        <div style="font-size:12px;color:var(--orion-muted);margin-top:4px">Posición SEO en<br>equipos concreto AQP</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--orion-orange);line-height:1">2+</div>
+        <div style="font-size:12px;color:var(--orion-muted);margin-top:4px">Nuevas unidades<br>de negocio activas</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:13px;color:var(--orion-muted);text-align:center;margin:0">Las proyecciones son estimaciones basadas en benchmarks del sector B2B industrial en América Latina y datos del mercado peruano de maquinaria pesada 2025–2026. Los resultados reales dependen de la velocidad de ejecución y calidad de implementación.</p>
+  </div>
+</section>
+
+</div><!-- /main -->
+
+<script>
+// NAVIGATION
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const section = document.getElementById(id);
+  if (section) {
+    section.classList.add('active');
+    // scroll to top
+    document.getElementById('main').scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+  event.currentTarget.classList.add('active');
+  // animate bars in this section
+  setTimeout(animateBars, 100);
+  setTimeout(animateCounters, 100);
+}
+
+// ANIMATE SCORE BARS
+function animateBars() {
+  document.querySelectorAll('.score-bar-fill[data-width], .kpi-fill[data-width]').forEach(el => {
+    const target = el.dataset.width;
+    if (target) { el.style.width = target; }
+  });
+}
+
+// ANIMATE COUNTERS
+function animateCounters() {
+  document.querySelectorAll('.kpi-value[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    let start = 0;
+    const duration = 1200;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.floor(start);
+    }, 16);
+  });
+}
+
+// CHART.JS DEFAULTS
+Chart.defaults.color = '#6B7A8D';
+Chart.defaults.borderColor = '#1E2733';
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+
+// RADAR CHART
+const radarCtx = document.getElementById('radarChart');
+if (radarCtx) {
+  new Chart(radarCtx, {
+    type: 'radar',
+    data: {
+      labels: ['Sitio Web', 'Redes\nSociales', 'Generación\nLeads', 'Marca\nDigital', 'SEO', 'Automatización', 'Contenido\nTécnico'],
+      datasets: [
+        {
+          label: 'Orion Actual',
+          data: [52, 38, 28, 38, 32, 15, 25],
+          borderColor: '#D4A843',
+          backgroundColor: 'rgba(212,168,67,0.12)',
+          pointBackgroundColor: '#D4A843',
+          borderWidth: 2,
+          pointRadius: 4
+        },
+        {
+          label: 'Objetivo 12M',
+          data: [78, 72, 68, 72, 70, 65, 70],
+          borderColor: '#2AE87A',
+          backgroundColor: 'rgba(42,232,122,0.06)',
+          pointBackgroundColor: '#2AE87A',
+          borderDash: [5,5],
+          borderWidth: 2,
+          pointRadius: 3
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } } },
+      scales: {
+        r: {
+          min: 0, max: 100,
+          grid: { color: '#1E2733' },
+          angleLines: { color: '#1E2733' },
+          ticks: { backdropColor: 'transparent', stepSize: 25, font: { size: 9 }, color: '#3A4A5C' },
+          pointLabels: { font: { size: 10 }, color: '#6B7A8D' }
+        }
+      }
+    }
+  });
+}
+
+// BAR COMPARISON CHART
+const barCtx = document.getElementById('barChart');
+if (barCtx) {
+  new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Web', 'Catálogo', 'Leads', 'SEO', 'LinkedIn', 'CRM/Auto', 'Marca'],
+      datasets: [
+        { label: 'Orion', data: [52,58,28,32,5,15,38], backgroundColor: 'rgba(212,168,67,0.7)', borderColor: '#D4A843', borderWidth: 1, borderRadius: 3 },
+        { label: 'Ferreyros', data: [88,92,85,90,92,88,95], backgroundColor: 'rgba(232,57,42,0.4)', borderColor: '#E8392A', borderWidth: 1, borderRadius: 3 },
+        { label: 'KMMP', data: [80,85,78,85,82,80,85], backgroundColor: 'rgba(42,175,232,0.4)', borderColor: '#2AAFE8', borderWidth: 1, borderRadius: 3 },
+        { label: 'Maquiperu', data: [72,70,62,65,42,55,58], backgroundColor: 'rgba(42,232,122,0.35)', borderColor: '#2AE87A', borderWidth: 1, borderRadius: 3 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, boxWidth: 10 } } },
+      scales: {
+        y: { min: 0, max: 100, grid: { color: '#1E2733' }, ticks: { font: { size: 10 } } },
+        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+}
+
+// COMPETITOR CHART
+const compCtx = document.getElementById('compChart');
+if (compCtx) {
+  new Chart(compCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Orion Maquinarias', 'Ferreyros / CAT', 'Komatsu-Mitsui', 'Maquiperu'],
+      datasets: [
+        { label: 'Madurez Digital Global', data: [38, 92, 85, 65], backgroundColor: ['rgba(212,168,67,0.7)','rgba(232,57,42,0.6)','rgba(42,175,232,0.6)','rgba(42,232,122,0.55)'], borderColor: ['#D4A843','#E8392A','#2AAFE8','#2AE87A'], borderWidth: 2, borderRadius: 4 }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { min: 0, max: 100, grid: { color: '#1E2733' }, ticks: { font: { size: 10 } } },
+        y: { grid: { display: false }, ticks: { font: { size: 12, weight: '500' } } }
+      }
+    }
+  });
+}
+
+// OPPORTUNITY CHART
+const oppCtx = document.getElementById('oppChart');
+if (oppCtx) {
+  new Chart(oppCtx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Oportunidades',
+        data: [
+          {x:15,y:92,r:20,label:'SEO Local Arequipa'},
+          {x:35,y:88,r:18,label:'Google Ads'},
+          {x:25,y:85,r:16,label:'WhatsApp API'},
+          {x:45,y:80,r:14,label:'LinkedIn B2B'},
+          {x:20,y:75,r:12,label:'Email Nurturing'},
+          {x:60,y:72,r:12,label:'Chatbot IA'},
+          {x:40,y:68,r:11,label:'TikTok/Reels'},
+          {x:55,y:65,r:10,label:'Remarketing'},
+          {x:70,y:60,r:11,label:'Tienda Repuestos'},
+          {x:75,y:55,r:10,label:'Portal Clientes'},
+          {x:80,y:70,r:14,label:'Academia Online'},
+          {x:85,y:65,r:12,label:'Alquiler Digital'},
+        ],
+        backgroundColor: 'rgba(212,168,67,0.5)',
+        borderColor: '#D4A843',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = ctx.raw;
+              return `Impacto: ${d.y}% | Esfuerzo: ${d.x}%`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { min: 0, max: 100, title: { display: true, text: 'Esfuerzo / Inversión →', font: { size: 10 }, color: '#6B7A8D' }, grid: { color: '#1E2733' }, ticks: { font: { size: 9 } } },
+        y: { min: 40, max: 100, title: { display: true, text: '← Impacto en Ventas', font: { size: 10 }, color: '#6B7A8D' }, grid: { color: '#1E2733' }, ticks: { font: { size: 9 } } }
+      }
+    }
+  });
+}
+
+// GANTT-STYLE CHART
+const ganttCtx = document.getElementById('ganttChart');
+if (ganttCtx) {
+  new Chart(ganttCtx, {
+    type: 'bar',
+    data: {
+      labels: ['GBP + SEO Local','WhatsApp API','Formulario cotización','Casos de éxito','CRM básico','LinkedIn activación','Google Ads','Chatbot IA','TikTok/Video','Email nurturing','LinkedIn Ads ABM','Academia Online','Tienda Repuestos','Portal Clientes','Plataforma Alquiler'],
+      datasets: [
+        {
+          label: 'Fase 1 (0–3M)',
+          data: [
+            [0,2],[0,1],[0.5,2],[1,3],[1.5,3],[2,3],
+            [0,0],[0,0],[0,0],[0,0],[0,0],
+            [0,0],[0,0],[0,0],[0,0]
+          ],
+          backgroundColor: 'rgba(42,232,122,0.6)',
+          borderColor: '#2AE87A', borderWidth: 1, borderRadius: 2, borderSkipped: false
+        },
+        {
+          label: 'Fase 2 (3–6M)',
+          data: [
+            [0,0],[0,0],[0,0],[0,0],[0,0],[0,0],
+            [3,6],[3.5,5.5],[4,6],[4,6],[5,6],
+            [0,0],[0,0],[0,0],[0,0]
+          ],
+          backgroundColor: 'rgba(212,168,67,0.6)',
+          borderColor: '#D4A843', borderWidth: 1, borderRadius: 2, borderSkipped: false
+        },
+        {
+          label: 'Fase 3 (6–12M)',
+          data: [
+            [0,0],[0,0],[0,0],[0,0],[0,0],[0,0],
+            [0,0],[0,0],[0,0],[0,0],[0,0],
+            [6,9],[7,10],[9,12],[10,12]
+          ],
+          backgroundColor: 'rgba(42,175,232,0.6)',
+          borderColor: '#2AAFE8', borderWidth: 1, borderRadius: 2, borderSkipped: false
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { min: 0, max: 12, title: { display: true, text: 'Mes', font: { size: 10 }, color: '#6B7A8D' }, grid: { color: '#1E2733' }, ticks: { stepSize: 1, font: { size: 9 } } },
+        y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+      }
+    }
+  });
+}
+
+// INIT
+setTimeout(() => {
+  animateBars();
+  animateCounters();
+}, 300);
+
+// ACTIVE SECTION DETECTION
+const mainEl = document.getElementById('main');
+</script>
 </body>
 </html>
+HTMLEOF
+echo "Done"
+Output
+
+
+
+
+
+
+
+
+
+
